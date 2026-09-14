@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 4000;
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "https://cloud-kitchen-hv8p0l75e-arjun-3754.vercel.app",
+    origin: process.env.FRONTEND_URL || "https://cloud-kitchen-sand.vercel.app",
     credentials:true
   })
 );
