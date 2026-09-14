@@ -1,0 +1,537 @@
+:root {
+  --paper: #fbf7ee;
+  --paper-alt: #f3ecda;
+  --ink: #26241d;
+  --ink-soft: #56503f;
+  --marigold: #e2a13a;
+  --marigold-dark: #c07f22;
+  --brick: #b5442e;
+  --leaf: #3c5c46;
+  --line: #e3d9bf;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Work Sans", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+a {
+  color: var(--leaf);
+}
+
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  max-width: 640px;
+  margin-bottom: 2.5rem;
+}
+
+.hero-kicker {
+  color: var(--brick);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.4rem;
+  font-size: 0.95rem;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  font-weight: 600;
+  margin: 0 0 0.6rem;
+  line-height: 1.05;
+}
+
+.hero-tagline {
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 46ch;
+}
+
+/* ---------- Layout: menu + cart ---------- */
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.menu-category {
+  margin-bottom: 2rem;
+}
+
+.menu-category h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.4rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.menu-card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.menu-card-body h3 {
+  margin: 0 0 0.3rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.menu-card-desc {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  margin: 0 0 0.5rem;
+}
+
+.menu-card-price {
+  font-weight: 600;
+  margin: 0;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  align-self: flex-start;
+}
+
+.stepper button {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid var(--marigold-dark);
+  background: var(--paper-alt);
+  color: var(--marigold-dark);
+  font-size: 1.1rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.stepper button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.stepper span {
+  min-width: 1.2rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ---------- Cart panel ---------- */
+
+.cart-panel {
+  position: sticky;
+  top: 1.5rem;
+  background: var(--paper-alt);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.cart-panel h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  margin: 0 0 1rem;
+  font-size: 1.3rem;
+}
+
+.cart-lines {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.cart-lines li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.92rem;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  border-top: 1px solid var(--line);
+  padding-top: 0.6rem;
+  margin-bottom: 1.2rem;
+}
+
+/* ---------- Forms ---------- */
+
+.checkout-form,
+.recipe-form,
+.admin-login-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+input,
+textarea,
+select {
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: white;
+  color: var(--ink);
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus-visible {
+  outline: 2px solid var(--marigold-dark);
+  outline-offset: 1px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+}
+
+.btn-primary {
+  background: var(--marigold);
+  color: var(--ink);
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--marigold-dark);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.7rem 1.1rem;
+  cursor: pointer;
+}
+
+.error-banner {
+  background: #fbe9e5;
+  color: var(--brick);
+  border: 1px solid #eec3ba;
+  border-radius: 5px;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.empty-note {
+  color: var(--ink-soft);
+}
+
+/* ---------- Confirmation ---------- */
+
+.confirmation-page {
+  display: flex;
+  justify-content: center;
+}
+
+.confirmation-card {
+  max-width: 480px;
+  text-align: left;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.confirmation-card h1 {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 500;
+  margin-top: 0;
+}
+
+.confirmation-sub {
+  color: var(--ink-soft);
+  margin-top: -0.5rem;
+}
+
+.confirmation-items {
+  margin: 1rem 0;
+  padding-left: 1.2rem;
+}
+
+.confirmation-note {
+  color: var(--ink-soft);
+}
+
+/* ---------- Admin ---------- */
+
+.admin-login-page {
+  display: flex;
+  justify-content: center;
+  padding-top: 4rem;
+}
+
+.admin-login-card {
+  width: 320px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.admin-login-card h1 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.admin-header h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  margin: 0;
+}
+
+.admin-tabs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.admin-tabs button {
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+}
+
+.admin-tabs button.active {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.order-card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.1rem 1.25rem;
+}
+
+.order-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.order-card h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+}
+
+.order-meta {
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  margin: 0.2rem 0 0;
+}
+
+.order-total {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.order-address,
+.order-notes {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0;
+}
+
+.order-items {
+  margin: 0.6rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.order-status-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.9rem;
+}
+
+.sms-warning {
+  color: var(--brick);
+  font-size: 0.82rem;
+}
+
+.admin-menu {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 780px) {
+  .admin-menu {
+    grid-template-columns: 1fr;
+  }
+}
+
+.recipe-form {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.recipe-form h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.recipe-manage-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.recipe-manage-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.7rem 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.recipe-manage-row.unavailable {
+  opacity: 0.55;
+}
+
+.recipe-manage-price,
+.recipe-manage-category {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.unavailable-tag {
+  margin-left: 0.6rem;
+  font-size: 0.78rem;
+  color: var(--brick);
+}
+
+.recipe-manage-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.recipe-manage-actions button {
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.not-found {
+  text-align: center;
+  padding: 4rem 1rem;
+}

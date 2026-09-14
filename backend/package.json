@@ -1,0 +1,19 @@
+{
+  "name": "cloud-kitchen-backend",
+  "version": "1.0.0",
+  "description": "Backend API for a cloud kitchen ordering website — stores orders in Postgres and texts the owner when one comes in.",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "db:setup": "node src/scripts/setupDb.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "pg": "^8.23.0",
+    "twilio": "^5.3.0"
+  }
+}
