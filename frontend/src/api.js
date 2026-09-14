@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:4000/api";
+const BASE_URL = import.meta.env.VITE_API_URL || "https://cloud-kitchen-gg2u.onrender.com/api";
 
 async function request(path, { method = "GET", body, adminPassword } = {}) {
   const headers = { "Content-Type": "application/json" };
