@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 4000;
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:5173",
+    origin: process.env.FRONTEND_URL || "https://cloud-kitchen-h4q3fbso5-arjun-3754.vercel.app",
   })
 );
 app.use(express.json());
