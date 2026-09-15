@@ -15,8 +15,9 @@ recipesRouter.get("/", async (req, res) => {
     );
     res.json(rows);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Could not load the menu." });
+    console.error("GET/api/recipes ERROR:",err);
+    res.status(500).json({ error: "Could not load the menu.",
+      details: err.message });
   }
 });
 
