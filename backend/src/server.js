@@ -9,12 +9,21 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-app.use(
-  cors({
-    origin: process.env.FRONTEND_URL || "https://cloud-kitchen-sand.vercel.app",
-    credentials:true
-  })
-);
+const allowedOrigins = [
+  "https://cloud-kitchen-sand.vercel.app",
+  "https://cloud-kitchen-6ggumt99g-arjun-3754.vercel.app"
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
+}));
 app.use(express.json());
 
 app.get("/api/health", (req, res) => res.json({ ok: true }));
